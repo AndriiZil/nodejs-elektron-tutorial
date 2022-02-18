@@ -1,0 +1,15 @@
+{
+  "name": "09_shortcuts_keyup_keydown",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^17.0.1"
+  }
+}

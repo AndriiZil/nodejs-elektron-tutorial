@@ -1,0 +1,15 @@
+{
+  "name": "08_global_shourtcuts",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "electron": "^17.0.1"
+  }
+}

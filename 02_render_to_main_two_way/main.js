@@ -1,39 +1,39 @@
-const { app, BrowserWindow, ipcMain, dialog } = require('electron');
+const {app, BrowserWindow, ipcMain, dialog} = require('electron');
 const path = require('path');
 
 async function handleFileOpen() {
-    const { canceled, filePaths } = await dialog.showOpenDialog()
-    if (canceled) {
-        return;
-    } else {
-        return filePaths[0];
-    }
+  const {canceled, filePaths} = await dialog.showOpenDialog()
+  if (canceled) {
+    return;
+  } else {
+    return filePaths[0];
+  }
 }
 
-function createWindow () {
-    const mainWindow = new BrowserWindow({
-        webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
-        }
-    })
-    mainWindow.loadFile('index.html');
+function createWindow() {
+  const mainWindow = new BrowserWindow({
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
+  })
+  mainWindow.loadFile('index.html');
 }
 
 app.whenReady().then(() => {
-    ipcMain.handle('dialog:openFile', handleFileOpen);
-    createWindow();
-    app.on('activate', function () {
-        if (BrowserWindow.getAllWindows().length === 0) createWindow();
-    });
+  ipcMain.handle('dialog:openFile', handleFileOpen);
+  createWindow();
+  app.on('activate', function () {
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
+  });
 });
 
 ipcMain.on('asynchronous-message', (event, arg) => {
-    console.log(arg) // prints "ping" in the Node console
-    // works like `send`, but returning a message back
-    // to the renderer that sent the original message
-    event.reply('asynchronous-reply', 'pong')
-})
+  console.log(arg) // prints "ping" in the Node console
+  // works like `send`, but returning a message back
+  // to the renderer that sent the original message
+  event.reply('asynchronous-reply', 'pong')
+});
 
 app.on('window-all-closed', function () {
-    if (process.platform !== 'darwin') app.quit();
+  if (process.platform !== 'darwin') app.quit();
 });

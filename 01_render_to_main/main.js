@@ -8,12 +8,9 @@ function createWindow () {
         }
     })
 
-    ipcMain.on('set-title', (event, title) => {
+    ipcMain.on('item:add', (event, title) => {
         console.log('title', title);
-        const webContents = event.sender
-        const win = BrowserWindow.fromWebContents(webContents)
-        win.setTitle(title)
-    })
+    });
 
     mainWindow.loadFile('index.html')
 }

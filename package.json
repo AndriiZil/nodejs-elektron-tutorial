@@ -1,0 +1,22 @@
+{
+  "name": "nodejs-elektron-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndriiZil/nodejs-elektron-tutorial.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AndriiZil/nodejs-elektron-tutorial/issues"
+  },
+  "homepage": "https://github.com/AndriiZil/nodejs-elektron-tutorial#readme",
+  "devDependencies": {
+    "electron": "17.0.1"
+  }
+}

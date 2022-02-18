@@ -8,9 +8,11 @@ function createWindow () {
         }
     })
 
-    ipcMain.on('item:add', (event, title) => {
+    ipcMain.on('set-title', (event, title) => {
         console.log('title', title);
     });
+
+    mainWindow.webContents.openDevTools();
 
     mainWindow.loadFile('index.html')
 }

@@ -1,10 +1,10 @@
 const form = document.querySelector('form');
-form.addEventListener('submit', submitForm);
 const item = document.getElementById('item');
 
-function submitForm(e) {
+form.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log('ER', window.electronAPI);
-}
+  console.log(item.value);
+  console.log(window);
+});
 
 

@@ -4,6 +4,8 @@ const path = require('path');
 let addWindow;
 let mainWindow;
 
+console.log(path.join(__dirname, 'preload.js'));
+
 async function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
@@ -11,13 +13,6 @@ async function createWindow() {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
     }
-  });
-
-  ipcMain.on('set-title', (event, title) => {
-    console.log('title', title);
-    const webContents = event.sender
-    const win = BrowserWindow.fromWebContents(webContents)
-    win.setTitle(title)
   });
 
   const mainMenu = Menu.buildFromTemplate(mainMenuTemplate);
@@ -53,6 +48,11 @@ async function handleCreateWindow() {
     addWindow = null;
   })
 }
+
+ipcMain.on('item:add', (event, title) => {
+  console.log(event);
+  console.log('title', title);
+});
 
 const mainMenuTemplate = [
   {

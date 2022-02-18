@@ -1,5 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron')
-const path = require('path')
+const path = require('path');
+
+console.log(path.join(__dirname, 'preload.js'));
 
 function createWindow () {
     const mainWindow = new BrowserWindow({
@@ -18,7 +20,7 @@ function createWindow () {
 }
 
 app.whenReady().then(() => {
-    createWindow()
+    createWindow();
 
     app.on('activate', function () {
         if (BrowserWindow.getAllWindows().length === 0) createWindow()

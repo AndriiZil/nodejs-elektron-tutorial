@@ -1,3 +1,5 @@
+require('electron');
+
 const form = document.querySelector('form');
 const item = document.getElementById('item');
 

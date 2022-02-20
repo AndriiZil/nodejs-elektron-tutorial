@@ -11,6 +11,7 @@ async function createWindow() {
     webPreferences: {
       // preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true, // Allows NodeJS in renderer
+      nodeIntegrationInWorker: true, // for WebWorkers
     }
   });
 

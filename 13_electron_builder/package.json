@@ -1,16 +1,34 @@
 {
   "name": "13_electron_builder",
+  "productName": "Example Builder",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Electron application description",
+  "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build-installer": "electron-builder"
+  },
+  "build": {
+    "appId": "coo;-app",
+    "win": {
+      "target": ["nsis"],
+      "icon": "src/icon.iso",
+      "requestedExecutionLevel": "requireAdministrator"
+    },
+    "nsis": {
+      "installerIcon": "src/icon.ico",
+      "uninstallerIcon": "src/icon.iso",
+      "uninstallDisplayName": "Example Builder",
+      "license": "license.txt",
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^17.0.1",
-    "electron-builder": "^22.14.13"
+    "electron": "17.0.1",
+    "electron-builder": "22.14.13"
   }
 }
